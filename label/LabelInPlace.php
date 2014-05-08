@@ -135,7 +135,7 @@ class LabelInPlace extends InputWidget
     protected function registerAssets()
     {
         $view = $this->getView();
-        LabelInplaceAsset::register($view);
+        LabelInPlaceAsset::register($view);
         $this->registerPlugin(self::PLUGIN_NAME);
     }
 
