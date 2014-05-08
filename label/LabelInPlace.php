@@ -2,7 +2,7 @@
 
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @package yii2-context-menu
+ * @package yii2-label-inplace
  * @version 1.0.0
  */
 
