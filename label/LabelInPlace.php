@@ -10,20 +10,16 @@ namespace kartik\label;
 
 use Yii;
 use kartik\widgets\InputWidget;
-use yii\bootstrap\Dropdown;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\helpers\Json;
-use yii\web\JsExpression;
-use yii\web\View;
+
 
 /**
- * A context menu extension for Bootstrap 3.0, which allows you to access
- * a context menu for a specific area on mouse right click.
- * Based on bootstrap-contextmenu jquery plugin by sydcanem.
+ * A form enhancement widget for Yii framework 2.0 allowing in-field label support.
+ * Based on labelinplace plugin by andreapace.
  *
- * @see https://github.com/sydcanem/bootstrap-contextmenu
+ * @see https://github.com/andreapace/labelinplace
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
@@ -31,9 +27,9 @@ class LabelInPlace extends InputWidget
 {
     const PLUGIN_NAME = 'labelinplace';
 
-    const TYPE_HTML5 = 'input';
     const TYPE_TEXTINPUT = 'textInput';
     const TYPE_TEXTAREA = 'textArea';
+    const TYPE_HTML5 = 'input';
 
     /**
      * @var string the type of input to be rendered
@@ -69,9 +65,9 @@ class LabelInPlace extends InputWidget
      * @var array allowed input types
      */
     private static $_allowedTypes = [
-        self::TYPE_HTML5 => 'input',
         self::TYPE_TEXTINPUT => 'textInput',
-        self::TYPE_TEXTAREA => 'textArea'
+        self::TYPE_TEXTAREA => 'textArea',
+        self::TYPE_HTML5 => 'input'
     ];
 
     /**
@@ -119,7 +115,7 @@ class LabelInPlace extends InputWidget
      */
     protected function getLabel()
     {
-        if ($this->hasModel() && !isset($this->label)) {
+        if ($this->hasModel() && (!isset($this->label) || $this->label === true)) {
             return Html::activeLabel($this->model, $this->attribute, $this->labelOptions);
         } else {
             $label = $this->encodeLabel ? Html::encode($this->label) : $this->label;
