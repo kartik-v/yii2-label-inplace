@@ -2,7 +2,7 @@
 
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @package yii2-label-inplace
+ * @package yii2-context-menu
  * @version 1.0.0
  */
 
@@ -56,11 +56,6 @@ class LabelInPlace extends InputWidget
     public $defaultIndicators = true;
 
     /**
-     * @var array the HTML attributes for the input
-     */
-    public $options = ['class' => 'form-control'];
-
-    /**
      * @var array allowed input types
      */
     private static $_allowedTypes = [
@@ -81,6 +76,9 @@ class LabelInPlace extends InputWidget
             throw new InvalidConfigException("Invalid 'type' entered. Must be one of: '{$types}'.");
         }
         parent::init();
+        if (empty($this->options['class'])) {
+            $this->options['class'] = 'form-control';
+        }
         $this->initPluginOptions();
         if ($this->label !== false) {
             echo $this->getLabel();
