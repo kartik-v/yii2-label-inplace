@@ -38,7 +38,7 @@ class LabelInPlace extends InputWidget
     /**
      * @var string the type of input to be rendered
      */
-    public $type = self::INPUT_TEXTINPUT;
+    public $type = self::TYPE_TEXTINPUT;
 
     /**
      * @var string|boolean the label content to be displayed. If set to `false` will not be parsed.
@@ -54,6 +54,16 @@ class LabelInPlace extends InputWidget
      * @var array the HTML attributes for the label
      */
     public $labelOptions = [];
+
+    /**
+     * @var boolean show default label direction indicators
+     */
+    public $defaultIndicators = true;
+
+    /**
+     * @var array the HTML attributes for the input
+     */
+    public $options = ['class' => 'form-control'];
 
     /**
      * @var array allowed input types
@@ -76,11 +86,30 @@ class LabelInPlace extends InputWidget
             throw new InvalidConfigException("Invalid 'type' entered. Must be one of: '{$types}';");
         }
         parent::init();
-        $this->registerAssets();
+        $this->initPluginOptions();
         if ($this->label !== false) {
             echo $this->getLabel();
         }
         echo $this->getInput($this->type);
+        $this->registerAssets();
+    }
+
+    /**
+     * Initialize default plugin options
+     */
+    protected function initPluginOptions() {
+        $this->pluginOptions += [
+            'inputAttr' => 'id',
+            'labelPosition' => 'up',
+            'labelIconPosition' => 'after',
+        ];
+        if ($this->defaultIndicators) {
+            $this->pluginOptions += [
+                'labelArrowRight' => ' <i class="glyphicon glyphicon-expand"></i>',
+                'labelArrowDown' => ' <i class="glyphicon glyphicon-collapse-down"></i>',
+                'labelArrowUp' => ' <i class="glyphicon glyphicon-collapse-up"></i>',
+            ];
+        }
     }
 
     /**
@@ -90,10 +119,10 @@ class LabelInPlace extends InputWidget
      */
     protected function getLabel()
     {
-        if ($this->hasModel && !isset($this->label)) {
+        if ($this->hasModel() && !isset($this->label)) {
             return Html::activeLabel($this->model, $this->attribute, $this->labelOptions);
         } else {
-            $label = $this->encodeLabel ? Html::encode($this->label) : $this->label
+            $label = $this->encodeLabel ? Html::encode($this->label) : $this->label;
             return Html::label($label, $this->options['id'], $this->labelOptions);
         }
     }
