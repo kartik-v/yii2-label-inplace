@@ -2,14 +2,14 @@
 
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2013
- * @package yii2-context-menu
+ * @package yii2-label-inplace
  * @version 1.0.0
  */
 
 namespace kartik\label;
 
 /**
- * ContextMenu bundle for \kartik\widgets\ContextMenu
+ * LabelInPlace bundle for \kartik\widgets\LabelInPlace
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0

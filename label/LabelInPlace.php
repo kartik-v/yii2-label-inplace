@@ -2,7 +2,7 @@
 
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @package yii2-context-menu
+ * @package yii2-label-inplace
  * @version 1.0.0
  */
 
@@ -13,7 +13,6 @@ use kartik\widgets\InputWidget;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-
 
 /**
  * A form enhancement widget for Yii framework 2.0 allowing in-field label support.
@@ -27,14 +26,14 @@ class LabelInPlace extends InputWidget
 {
     const PLUGIN_NAME = 'labelinplace';
 
-    const TYPE_TEXTINPUT = 'textInput';
+    const TYPE_TEXT = 'textInput';
     const TYPE_TEXTAREA = 'textArea';
     const TYPE_HTML5 = 'input';
 
     /**
      * @var string the type of input to be rendered
      */
-    public $type = self::TYPE_TEXTINPUT;
+    public $type = self::TYPE_TEXT;
 
     /**
      * @var string|boolean the label content to be displayed. If set to `false` will not be parsed.
@@ -65,7 +64,7 @@ class LabelInPlace extends InputWidget
      * @var array allowed input types
      */
     private static $_allowedTypes = [
-        self::TYPE_TEXTINPUT => 'textInput',
+        self::TYPE_TEXT => 'textInput',
         self::TYPE_TEXTAREA => 'textArea',
         self::TYPE_HTML5 => 'input'
     ];
@@ -79,21 +78,30 @@ class LabelInPlace extends InputWidget
     {
         if (!in_array($this->type, self::$_allowedTypes)) {
             $types = implode("', '", self::$_allowedTypes);
-            throw new InvalidConfigException("Invalid 'type' entered. Must be one of: '{$types}';");
+            throw new InvalidConfigException("Invalid 'type' entered. Must be one of: '{$types}'.");
         }
         parent::init();
         $this->initPluginOptions();
         if ($this->label !== false) {
             echo $this->getLabel();
         }
-        echo $this->getInput($this->type);
+        if ($this->type == self::TYPE_HTML5) {
+            $type = ArrayHelper::remove($this->options, 'type', 'text');
+            $input = $this->hasModel() ?
+                Html::activeInput($type, $this->model, $this->attribute, $this->options) :
+                Html::input($type, $this->name, $this->value, $this->options);
+        } else {
+            $input = $this->getInput($this->type);
+        }
+        echo $input;
         $this->registerAssets();
     }
 
     /**
      * Initialize default plugin options
      */
-    protected function initPluginOptions() {
+    protected function initPluginOptions()
+    {
         $this->pluginOptions += [
             'inputAttr' => 'id',
             'labelPosition' => 'up',
