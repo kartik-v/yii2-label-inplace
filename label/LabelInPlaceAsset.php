@@ -9,7 +9,7 @@
 namespace kartik\label;
 
 /**
- * LabelInPlace bundle for \kartik\widgets\LabelInPlace
+ * LabelInPlace bundle for \kartik\label\LabelInPlace
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
