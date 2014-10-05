@@ -19,7 +19,7 @@ class LabelInPlaceAsset extends \kartik\widgets\AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../assets');
+        $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('css', ['css/jquery.labelinplace']);
         $this->setupAssets('js', ['js/jquery.labelinplace']);
         parent::init();
