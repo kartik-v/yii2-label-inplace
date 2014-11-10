@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2013
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-label-inplace
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace kartik\label;
@@ -14,9 +14,8 @@ namespace kartik\label;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class LabelInPlaceAsset extends \kartik\widgets\AssetBundle
+class LabelInPlaceAsset extends \kartik\base\AssetBundle
 {
-
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');
@@ -24,5 +23,4 @@ class LabelInPlaceAsset extends \kartik\widgets\AssetBundle
         $this->setupAssets('js', ['js/jquery.labelinplace']);
         parent::init();
     }
-
 }

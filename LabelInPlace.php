@@ -3,13 +3,12 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-label-inplace
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace kartik\label;
 
 use Yii;
-use kartik\widgets\InputWidget;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -22,7 +21,7 @@ use yii\helpers\Html;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class LabelInPlace extends InputWidget
+class LabelInPlace extends \kartik\base\InputWidget
 {
     const PLUGIN_NAME = 'labelinplace';
 
