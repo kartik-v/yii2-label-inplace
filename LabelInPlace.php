@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-label-inplace
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 namespace kartik\label;
@@ -23,11 +23,14 @@ use yii\helpers\Html;
  */
 class LabelInPlace extends \kartik\base\InputWidget
 {
-    const PLUGIN_NAME = 'labelinplace';
-
     const TYPE_TEXT = 'textInput';
     const TYPE_TEXTAREA = 'textArea';
     const TYPE_HTML5 = 'input';
+
+    /**
+     * @inherit doc
+     */
+    protected $_pluginName = 'datecontrol';
 
     /**
      * @var string the type of input to be rendered
@@ -135,7 +138,7 @@ class LabelInPlace extends \kartik\base\InputWidget
     {
         $view = $this->getView();
         LabelInPlaceAsset::register($view);
-        $this->registerPlugin(self::PLUGIN_NAME);
+        $this->registerPlugin($this->_pluginName);
     }
 
 }
