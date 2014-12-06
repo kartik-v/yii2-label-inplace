@@ -30,7 +30,7 @@ class LabelInPlace extends \kartik\base\InputWidget
     /**
      * @inherit doc
      */
-    protected $_pluginName = 'datecontrol';
+    protected $_pluginName = 'labelinplace';
 
     /**
      * @var string the type of input to be rendered
