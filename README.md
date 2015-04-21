@@ -1,11 +1,11 @@
 yii2-label-inplace
 =================
 
-[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-label-inplace/v/stable.svg)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
-[![License](https://poser.pugx.org/kartik-v/yii2-label-inplace/license.svg)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
-[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/downloads.svg)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
-[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/d/monthly.png)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
-[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/d/daily.png)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
+[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-label-inplace/v/stable)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
+[![License](https://poser.pugx.org/kartik-v/yii2-label-inplace/license)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
+[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/downloads)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/d/monthly)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
+[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-label-inplace/d/daily)](https://packagist.org/packages/kartik-v/yii2-label-inplace)
 
 A form enhancement widget for Yii framework 2.0 allowing in-field label support. This widget is a wrapper for the 
 [labelinplace plugin](https://github.com/andreapace/labelinplace) which is styled for Bootstrap 3. 
