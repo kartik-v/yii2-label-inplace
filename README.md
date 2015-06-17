@@ -14,7 +14,7 @@ A form enhancement widget for Yii framework 2.0 allowing in-field label support.
 You can see detailed [documentation](http://demos.krajee.com/label-inplace) on usage of the extension.
 
 ## Latest Release
-The latest version of the module is v1.2.0 released on 25-Nov-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-label-inplace/blob/master/CHANGE.md) for details.
+The latest version of the module is v1.2.1 released. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-label-inplace/blob/master/CHANGE.md) for details.
 
 ## Installation
 
@@ -26,13 +26,13 @@ Read this [web tip /wiki](http://webtips.krajee.com/setting-composer-minimum-sta
 Either run
 
 ```
-$ php composer.phar require kartik-v/yii2-label-inplace "dev-master"
+$ php composer.phar require kartik-v/yii2-label-inplace "@dev"
 ```
 
 or add
 
 ```
-"kartik-v/yii2-label-inplace": "dev-master"
+"kartik-v/yii2-label-inplace": "@dev"
 ```
 
 to the ```require``` section of your `composer.json` file.
