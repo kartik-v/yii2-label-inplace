@@ -74,7 +74,7 @@
                       inputLabel.css("position", "absolute").css("top", spaceTop + "px").css("left", spaceLeft + "px").addClass(settings.classPlaceholder);
                       if ($(elment).val()) inputLabel.hide();
 
-                      $(this).prev("label").andSelf().wrapAll('<div class="' + settings.wrapperClass + '"/>');
+                      $(this).prev("label").addBack().wrapAll('<div class="' + settings.wrapperClass + '"/>');
 
 
                   });
