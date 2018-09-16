@@ -1,6 +1,14 @@
 Change Log: `yii2-label-inplace`
 ================================
 
+## Version 1.2.3
+
+**Date:** 16-Sep-2018
+
+- (enh #4): Revamp source plugin to support fast clicks and double clicks.
+- Enhancements to support Bootstrap v4.x.
+- Move all source code to `src` directory.
+
 ## Version 1.2.2
 
 **Date:** 28-Nov-2017

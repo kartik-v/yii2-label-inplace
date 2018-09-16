@@ -1,20 +1,22 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
  * @package yii2-label-inplace
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 namespace kartik\label;
 
+use kartik\base\AssetBundle;
+
 /**
- * LabelInPlace bundle for \kartik\label\LabelInPlace
+ * Asset bundle for [[LabelInPlace]]
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class LabelInPlaceAsset extends \kartik\base\AssetBundle
+class LabelInPlaceAsset extends AssetBundle
 {
     public function init()
     {

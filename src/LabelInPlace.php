@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
  * @package yii2-label-inplace
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 namespace kartik\label;
 
-use Yii;
+use kartik\base\InputWidget;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -21,16 +21,27 @@ use yii\helpers\Html;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class LabelInPlace extends \kartik\base\InputWidget
+class LabelInPlace extends InputWidget
 {
+    /**
+     * @var string text input
+     */
     const TYPE_TEXT = 'textInput';
+
+    /**
+     * @var string text area
+     */
     const TYPE_TEXTAREA = 'textArea';
+
+    /**
+     * @var string HTML 5 input
+     */
     const TYPE_HTML5 = 'input';
 
     /**
-     * @inherit doc
+     * @inheritdoc
      */
-    protected $_pluginName = 'labelinplace';
+    public $pluginName = 'labelinplace';
 
     /**
      * @var string the type of input to be rendered
@@ -58,6 +69,15 @@ class LabelInPlace extends \kartik\base\InputWidget
     public $defaultIndicators = true;
 
     /**
+     * @var array the default list of icon indicator settings
+     */
+    protected static $_icons = [
+        'labelArrowRight' => ['expand', 'caret-square-right'],
+        'labelArrowDown' => ['collapse-down', 'caret-square-down'],
+        'labelArrowUp' => ['collapse-up', 'caret-square-up'],
+    ];
+
+    /**
      * @var array allowed input types
      */
     private static $_allowedTypes = [
@@ -69,7 +89,8 @@ class LabelInPlace extends \kartik\base\InputWidget
     /**
      * Initializes the widget
      *
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
+     * @throws \ReflectionException
      */
     public function init()
     {
@@ -108,11 +129,13 @@ class LabelInPlace extends \kartik\base\InputWidget
             'labelIconPosition' => 'after',
         ];
         if ($this->defaultIndicators) {
-            $this->pluginOptions += [
-                'labelArrowRight' => ' <i class="glyphicon glyphicon-expand"></i>',
-                'labelArrowDown' => ' <i class="glyphicon glyphicon-collapse-down"></i>',
-                'labelArrowUp' => ' <i class="glyphicon glyphicon-collapse-up"></i>',
-            ];
+            $isBs4 = $this->isBs4();
+            $prefix = $this->getDefaultIconPrefix();
+            $defaults = [];
+            foreach (static::$_icons as $icon => $cfg) {
+                $defaults[$icon] = ' ' . Html::tag('i', '', ['class' => $prefix . ($isBs4 ? $cfg[1] : $cfg[0])]);
+            }
+            $this->pluginOptions += $defaults;
         }
     }
 
@@ -138,7 +161,7 @@ class LabelInPlace extends \kartik\base\InputWidget
     {
         $view = $this->getView();
         LabelInPlaceAsset::register($view);
-        $this->registerPlugin($this->_pluginName);
+        $this->registerPlugin($this->pluginName);
     }
 
 }

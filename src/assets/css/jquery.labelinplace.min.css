@@ -1,0 +1,7 @@
+/*!
+ * Label In Place Plugin
+ * Forked from https://github.com/andreapace/labelinplace
+ * Revamped and modified by Kartik Visweswaran, Krajee.com, 2018
+ * @package yii2-label-inplace
+ * @version 1.2.3
+ */.lip-group label{transition:all 150ms ease-out}.label-group label .lip-icon{color:#ddd}.lip-placeholder{color:#ddd;cursor:text}.lip-label{color:#999}.lip-group{position:relative}

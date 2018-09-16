@@ -1,7 +1,16 @@
 {
     "name": "kartik-v/yii2-label-inplace",
     "description": "A form enhancement widget for Yii2 allowing in-field label support.",
-    "keywords": ["yii2", "extension", "widget", "form", "label", "input", "inplace", "inline"],
+    "keywords": [
+        "yii2",
+        "extension",
+        "widget",
+        "form",
+        "label",
+        "input",
+        "inplace",
+        "inline"
+    ],
     "homepage": "https://github.com/kartik-v/yii2-label-inplace",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
@@ -13,11 +22,11 @@
         }
     ],
     "require": {
-        "kartik-v/yii2-krajee-base": "~1.7"
+        "kartik-v/yii2-krajee-base": ">=1.9"
     },
     "autoload": {
         "psr-4": {
-            "kartik\\label\\": ""
+            "kartik\\label\\": "src"
         }
     },
     "extra": {
